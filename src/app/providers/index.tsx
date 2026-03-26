@@ -1,4 +1,6 @@
 import { QueryProvider } from './query-provider'
+import { AuthProvider } from './auth-provider'
+import { ErrorBoundary } from './error-boundary'
 
 interface AppProvidersProps {
   children: React.ReactNode
@@ -6,8 +8,12 @@ interface AppProvidersProps {
 
 export function AppProviders({ children }: AppProvidersProps) {
   return (
-    <QueryProvider>
-      {children}
-    </QueryProvider>
+    <ErrorBoundary>
+      <QueryProvider>
+        <AuthProvider>
+          {children}
+        </AuthProvider>
+      </QueryProvider>
+    </ErrorBoundary>
   )
 }
