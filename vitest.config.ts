@@ -2,9 +2,13 @@ import { defineConfig } from 'vitest/config'
 import react from '@vitejs/plugin-react'
 import path from 'path'
 
-// https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
+  test: {
+    globals: true,
+    environment: 'jsdom',
+    setupFiles: ['./src/shared/lib/test/setup.ts'],
+  },
   resolve: {
     alias: {
       '@app': path.resolve(__dirname, './src/app'),
@@ -14,10 +18,5 @@ export default defineConfig({
       '@entities': path.resolve(__dirname, './src/entities'),
       '@shared': path.resolve(__dirname, './src/shared'),
     },
-  },
-  test: {
-    globals: true,
-    environment: 'jsdom',
-    setupFiles: './src/shared/lib/test/setup.ts',
   },
 })
