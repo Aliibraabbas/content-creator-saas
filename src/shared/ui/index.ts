@@ -1,3 +1,3 @@
 export { Button } from './button'
 export { Input } from './input'
-export { Form, FormField, FormError } from './form'
+export { Form, FormField, FormLabel, FormMessage, FormError } from './form'

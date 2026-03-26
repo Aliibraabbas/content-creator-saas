@@ -1,2 +1,2 @@
 export { supabase } from './supabase'
-export type { Database } from './database.types'
+export type { Database, Inserts, Updates, Tables } from './database.types'

@@ -20,6 +20,26 @@ export function FormField({ children }: FormFieldProps) {
   return <div className="space-y-1">{children}</div>
 }
 
+interface FormLabelProps extends React.LabelHTMLAttributes<HTMLLabelElement> {
+  children: React.ReactNode
+}
+
+export function FormLabel({ children, className = '', ...props }: FormLabelProps) {
+  return (
+    <label className={`block text-sm font-medium text-gray-700 mb-1 ${className}`} {...props}>
+      {children}
+    </label>
+  )
+}
+
+interface FormMessageProps {
+  children: React.ReactNode
+}
+
+export function FormMessage({ children }: FormMessageProps) {
+  return <p className="text-sm text-red-600 mt-1">{children}</p>
+}
+
 interface FormErrorProps {
   message?: string
 }
